@@ -55,5 +55,6 @@ while True:
                     say("Crypto market alert. Dogecoin price has decreased"
                         " by five cents since last alert.")
                     say(f"Current price of Dogecoin is {round(price, 5)} dollars.")
+        previous_price = price
     except KeyboardInterrupt:
         exit(0)
