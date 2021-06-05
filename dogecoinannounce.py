@@ -37,24 +37,17 @@ while True:
                   end="")
             if previous_price < price:
                 print(colored("^", "green"))
-                if (
-                    int(str(previous_price)[4]) < 5 and int(str(price)[4]) >= 5
-                ) or (
-                    int(str(previous_price)[3]) < int(str(price)[3])
-                ):
+                if int(100 * price) - int(100 * previous_price) >= 1:
                     say("Crypto market alert. Dogecoin price has increased"
-                        " by five cents since last alert.")
+                        " by one cent since last alert.")
                     say(f"Current price of Dogecoin is {round(price, 5)} dollars.")
             else:
                 print(colored("v", "red"))
-                if (
-                    int(str(previous_price)[4]) >= 5 and int(str(price)[4]) < 5
-                ) or (
-                    int(str(previous_price)[3]) > int(str(price)[3])
-                ):
+                if int(100 * previous_price) - int(100 * price) >= 1:
                     say("Crypto market alert. Dogecoin price has decreased"
-                        " by five cents since last alert.")
+                        " by one cent since last alert.")
                     say(f"Current price of Dogecoin is {round(price, 5)} dollars.")
         previous_price = price
     except KeyboardInterrupt:
+        print("")
         exit(0)
